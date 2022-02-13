@@ -50,7 +50,8 @@ myStartupHook = do
 
 myConfig =
   def
-    { logHook = updatePointer (0.5, 0.5) (0, 0),
+    { borderWidth = 0,
+      logHook = updatePointer (0.5, 0.5) (0, 0),
       startupHook = myStartupHook
     }
     `additionalKeysP` [ ("M-S-=", unGrab *> spawn "scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"),
