@@ -22,7 +22,7 @@ myXmobarPP =
   def
     { ppSep = orange " • ",
       ppTitleSanitize = xmobarStrip,
-      ppCurrent = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2,
+      ppCurrent = blue . wrap " " "" . xmobarBorder "Top" "#5294E2" 2,
       ppHidden = white . wrap " " "",
       ppHiddenNoWindows = lowWhite . wrap " " "",
       ppUrgent = red . wrap (yellow "!") (yellow "!"),
@@ -38,15 +38,15 @@ myXmobarPP =
 
     blue, lowWhite, magenta, red, white, yellow :: String -> String
     magenta = xmobarColor "#ff79c6" ""
-    blue = xmobarColor "#bd93f9" ""
-    white = xmobarColor "#f8f8f2" ""
+    blue = xmobarColor "#5294E2" ""
+    white = xmobarColor "#7C818C" ""
     yellow = xmobarColor "#f1fa8c" ""
     red = xmobarColor "#ff5555" ""
-    lowWhite = xmobarColor "#bbbbbb" ""
+    lowWhite = xmobarColor "#4B5162" ""
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawn "killall trayer; trayer --edge top --align right --widthtype request --padding 15 --iconspacing 5 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x2B2E37  --height 30 --distance 5 --distancefrom top &"
+  spawn "killall trayer; trayer --edge top --align right --widthtype request --padding 15 --iconspacing 5 --SetDockType true --SetPartialStrut true --expand true --transparent true --alpha 0 --tint 0x383C4A  --height 30 --distance 5 --distancefrom top &"
 
 myConfig =
   def
@@ -57,6 +57,8 @@ myConfig =
     `additionalKeysP` [ ("M-S-=", unGrab *> spawn "scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"),
                         ("M-s", unGrab *> spawn "xscreensaver-command -lock"),
                         ("M-<Return>", spawn "gnome-terminal"),
+                        ("M-;", spawn "rofi -show run"),
+                        ("M-'", spawn "rofi -show window"),
                         -- Audio controls
                         ("<XF86AudioLowerVolume>", spawn "amixer -q -D pulse sset Master 5%-"),
                         ("<XF86AudioRaiseVolume>", spawn "amixer -q -D pulse sset Master 5%+"),

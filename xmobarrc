@@ -1,8 +1,8 @@
 Config { font     = "Fira Code 10"
        , additionalFonts = ["xft:FontAwesome-10"]
        , border = NoBorder
-       , bgColor = "#2B2E37"
-       , fgColor = "#929AAD"
+       , bgColor = "#383C4A"
+       , fgColor = "#7C818C"
        , alpha = 255
        , position = TopSize L 100 40
        , textOffset = 24
