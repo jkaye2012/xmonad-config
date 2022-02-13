@@ -1,0 +1,47 @@
+Config { font     = "Fira Code 10"
+       , additionalFonts = ["xft:FontAwesome-10"]
+       , border = NoBorder
+       , bgColor = "#2B2E37"
+       , fgColor = "#929AAD"
+       , alpha = 255
+       , position = TopSize L 100 40
+       , textOffset = 24
+       , textOffsets = [ 25, 24 ]
+       , allDesktops = True
+       , commands = [ Run Weather "KBDU"
+                        [ "--template", "<weather> <tempF>°F"
+                        , "-L", "32"
+                        , "-H", "85"
+                        , "--low"   , "lightblue"
+                        , "--normal", "mediumspringgreen"
+                        , "--high"  , "red"
+                        ] 36000
+                    , Run Cpu
+                        [ "-L", "0"
+                        , "-H", "50"
+                        , "--high"  , "red"
+                        , "--normal", "green"
+                        ] 10
+                    , Run Alsa "default" "Master"
+                        [ "--template", "<volumestatus>"
+                        , "--suffix"  , "True"
+                        , "--"
+                        , "--on", ""
+                        ]
+                    , Run Memory
+                        [ "--template", "Mem: <usedratio>%"
+                        , "-L", "0"
+                        , "-H", "80"
+                        , "--high", "red"
+                        , "--normal", "green"
+                        ] 10
+                    , Run Swap [ "-H", "10", "--high", "red" ] 10
+                    , Run Battery [ "-t", "<fn=1></fn> <left>% / <timeleft>" ] 60
+                    , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
+                    , Run Com "/home/jkaye/.xmonad/scripts/tray-pad.sh" [] "trayerpad" 60
+                    , Run XMonadLog
+                    ]
+       , sepChar  = "%"
+       , alignSep = "}{"
+       , template = "%XMonadLog% }{ %cpu% | %memory% * %swap% | %battery% | %KBDU% | %date% %trayerpad%"
+       }

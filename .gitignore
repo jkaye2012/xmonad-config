@@ -1,0 +1,7 @@
+build-x86_64-linux/
+.stack-work/
+
+xmonad-x86_64-linux
+xmonad.errors
+xmonad.hi
+xmonad.o
