@@ -4,17 +4,23 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Loggers
 import XMonad.Util.Ungrab
 
-myXmobarPP :: PP
-myXmobarPP = def
+grey1, grey2, grey3, grey4, cyan, orange :: String -> String
+grey1 = xmobarColor "#2B2E37" ""
+grey2 = xmobarColor "#555E70" ""
+grey3 = xmobarColor "#697180" ""
+grey4 = xmobarColor "#8691A8" ""
+cyan = xmobarColor "#8BABF0" ""
+orange = xmobarColor "#C45500" ""
 
-examplePP :: PP
-examplePP =
+myXmobarPP :: PP
+myXmobarPP =
   def
-    { ppSep = magenta " • ",
+    { ppSep = orange " • ",
       ppTitleSanitize = xmobarStrip,
       ppCurrent = wrap " " "" . xmobarBorder "Top" "#8be9fd" 2,
       ppHidden = white . wrap " " "",
@@ -24,8 +30,8 @@ examplePP =
       ppExtras = [logTitles formatFocused formatUnfocused]
     }
   where
-    formatFocused = wrap (white "[") (white "]") . magenta . ppWindow
-    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . blue . ppWindow
+    formatFocused = wrap (white "[") (white "]") . orange . ppWindow
+    formatUnfocused = wrap (lowWhite "[") (lowWhite "]") . cyan . ppWindow
 
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
@@ -57,7 +63,7 @@ main =
   xmonad
     . ewmhFullscreen
     . ewmh
-    . withEasySB (statusBarProp "xmobar ~/.xmonad/xmobarrc" $ pure examplePP) toggleStrutsKey
+    . withEasySB (statusBarProp "xmobar ~/.xmonad/xmobarrc" $ pure myXmobarPP) toggleStrutsKey
     $ myConfig
   where
     toggleStrutsKey :: XConfig Layout -> (KeyMask, KeySym)
