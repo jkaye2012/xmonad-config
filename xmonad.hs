@@ -55,7 +55,11 @@ myConfig =
     }
     `additionalKeysP` [ ("M-S-=", unGrab *> spawn "scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"),
                         ("M-s", unGrab *> spawn "xscreensaver-command -lock"),
-                        ("M-<Return>", spawn "gnome-terminal")
+                        ("M-<Return>", spawn "gnome-terminal"),
+                        -- Audio controls
+                        ("<XF86AudioLowerVolume>", spawn "amixer -q -D pulse sset Master 5%-"),
+                        ("<XF86AudioRaiseVolume>", spawn "amixer -q -D pulse sset Master 5%+"),
+                        ("<XF86AudioMute>", spawn "amixer -q -D pulse sset Master toggle")
                       ]
 
 main :: IO ()
