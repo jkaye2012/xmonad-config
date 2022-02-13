@@ -15,6 +15,8 @@ Clone this repository, then install it:
     git clone https://github.com/jkaye2012/xmonad-config.git ~/.xmonad
     cd ~/.xmonad
     git submodule update --init --recursive
+    ln -s ~/.xmonad/xsessionrc ~/.xsessionrc
+    ln -s ~/.xmonad/xinitrc ~/.xinitrc
     stack install
 
 This will install `xmonad` to `~/.local/bin`. You should ensure that the binaries are on
@@ -22,4 +24,6 @@ your `PATH`.
 
 ## Keybindings
 
+* `M-<Return>`: Open a Gnome terminal instance.
 * `M-S-=`: Screenshot a window or region. Files are saved to ~/Pictures/Screenshots and copied to the clipboard.
+* `M-s`: Lock the screen.
