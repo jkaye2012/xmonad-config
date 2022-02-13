@@ -59,7 +59,10 @@ myConfig =
                         -- Audio controls
                         ("<XF86AudioLowerVolume>", spawn "amixer -q -D pulse sset Master 5%-"),
                         ("<XF86AudioRaiseVolume>", spawn "amixer -q -D pulse sset Master 5%+"),
-                        ("<XF86AudioMute>", spawn "amixer -q -D pulse sset Master toggle")
+                        ("<XF86AudioMute>", spawn "amixer -q -D pulse sset Master toggle"),
+                        ("<XF86AudioPlay>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"),
+                        ("<XF86AudioPrev>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"),
+                        ("<XF86AudioNext>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
                       ]
 
 main :: IO ()
