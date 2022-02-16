@@ -1,8 +1,8 @@
 Config { font     = "Fira Code 10"
        , additionalFonts = ["xft:FontAwesome-10"]
        , border = NoBorder
-       , bgColor = "#383C4A"
-       , fgColor = "#7C818C"
+       , bgColor = "#2e3440"
+       , fgColor = "#d8dee9"
        , alpha = 255
        , position = TopSize L 100 40
        , textOffset = 24
@@ -12,15 +12,16 @@ Config { font     = "Fira Code 10"
                         [ "--template", "<weather> <tempF>°F"
                         , "-L", "32"
                         , "-H", "85"
-                        , "--low"   , "lightblue"
-                        , "--normal", "mediumspringgreen"
-                        , "--high"  , "red"
+                        , "--low"   , "#88c0d0"
+                        , "--normal", "#a3be8c"
+                        , "--high"  , "#bf616a"
                         ] 36000
                     , Run Cpu
                         [ "-L", "0"
-                        , "-H", "50"
-                        , "--high"  , "red"
-                        , "--normal", "green"
+                        , "-H", "80"
+                        , "--high"  , "#bf616a"
+                        , "--normal", "#a3be8c"
+                        , "--low", "#a3be8c"
                         ] 10
                     , Run Alsa "default" "Master"
                         [ "--template", "<volumestatus>"
@@ -32,16 +33,28 @@ Config { font     = "Fira Code 10"
                         [ "--template", "Mem: <usedratio>%"
                         , "-L", "0"
                         , "-H", "80"
-                        , "--high", "red"
-                        , "--normal", "green"
+                        , "--high", "#bf616a"
+                        , "--normal", "#a3be8c"
+                        , "--low", "#a3be8c"
                         ] 10
-                    , Run Swap [ "-H", "10", "--high", "red" ] 10
-                    , Run Battery [ "-t", "<fn=1></fn> <left>% / <timeleft>" ] 60
-                    , Run Date "%a %Y-%m-%d <fc=#8be9fd>%H:%M</fc>" "date" 10
+                    , Run Swap
+                        [ "-H", "10"
+                        , "--high", "#bf616a"
+                        , "--normal", "#a3be8c"
+                        , "--low", "#a3be8c"
+                        ] 10
+                    , Run Battery
+                        [ "--template", "<fn=1></fn> <left>% / <timeleft>"
+                        , "-L", "20"
+                        , "-H", "100"
+                        , "--low"  , "#bf616a"
+                        , "--normal", "#a3be8c"
+                    ] 60
+                    , Run Date "%a %Y-%m-%d <fc=#88c0d0>%H:%M</fc>" "date" 10
                     , Run Com "/home/jkaye/.xmonad/scripts/tray-pad.sh" [] "trayerpad" 60
                     , Run XMonadLog
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %cpu% | %memory% * %swap% | %battery% | %KBDU% | %date% %trayerpad%"
+       , template = "%XMonadLog% }{ %cpu% <fc=#d08770>|</fc> %memory% <fc=#d08770>•</fc> %swap% <fc=#d08770>|</fc> %battery% <fc=#d08770>|</fc>%KBDU% <fc=#d08770>|</fc> %date% %trayerpad%"
        }
