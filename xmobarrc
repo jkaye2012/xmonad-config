@@ -1,4 +1,4 @@
-Config { font     = "Fira Code 10"
+Config { font     = "xft:FiraCode-10"
        , additionalFonts = ["xft:FontAwesome-10"]
        , border = NoBorder
        , bgColor = "#2e3440"
