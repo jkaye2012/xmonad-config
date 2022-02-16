@@ -40,5 +40,6 @@ If you're using `gnome-terminal`, you can download and enable the `Nord` theme u
 * `M-s`: Lock the screen.
 * `M-;`: Run a program using `rofi`.
 * `M-'`: Switch to another window using `rofi`.
+* `M-c`: Kill the currently focused window.
 
 Media keys should all function natively.

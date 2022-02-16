@@ -92,6 +92,7 @@ myConfig =
                         ("M-<Return>", spawn "gnome-terminal"),
                         ("M-;", spawn "rofi -show run"),
                         ("M-'", spawn "rofi -show window"),
+                        ("M-c", kill),
                         -- Audio controls
                         ("<XF86AudioLowerVolume>", spawn "amixer -q -D pulse sset Master 5%-"),
                         ("<XF86AudioRaiseVolume>", spawn "amixer -q -D pulse sset Master 5%+"),
