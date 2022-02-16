@@ -9,9 +9,6 @@ xsetroot -cursor_name left_ptr
 # Set a nice background
 feh --bg-fill --no-fehbg ~/.xmonad/wallpaper.jpg
 
-# Fire up screensaver
-xscreensaver -no-splash &
-
 # Power Management
 xfce4-power-manager &
 

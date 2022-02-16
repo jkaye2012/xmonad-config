@@ -1,0 +1,12 @@
+[Unit]
+Description=User suspend actions
+After=sleep.target
+
+[Service]
+User=%I
+Type=forking
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/slock
+
+[Install]
+WantedBy=sleep.target

@@ -4,7 +4,7 @@
 
 The following are required for this configuration to work properly:
 
-    sudo apt install feh fzf rofi scrot trayer xclip xfce4-power-manager xmobar xscreensaver
+    sudo apt install feh fzf rofi scrot slock trayer xclip xfce4-power-manager xmobar
 
 ## Installation
 
@@ -18,6 +18,8 @@ Clone this repository, then install it:
     ln -s ~/.xmonad/xsessionrc ~/.xsessionrc
     ln -s ~/.xmonad/xinitrc ~/.xinitrc
     ln -s ~/.xmonad/Xresources ~/.Xresources
+    sudo cp ~/.xmonad/suspend@.service /etc/systemd/system
+    sudo systemctl enable suspend@$USERNAME
     stack install
 
 This will install `xmonad` to `~/.local/bin`. You should ensure that the binaries are on
