@@ -31,6 +31,8 @@ The following utilities require some extra setup:
 
 I recommend using the `Arc Dark` theme for `rofi` (use `rofi-theme-selector` to easily customize this).
 
+If you're using `gnome-terminal`, you can download and enable the `Nord` theme using [Gogh](https://mayccoll.github.io/Gogh/).
+
 ## Keybindings
 
 * `M-<Return>`: Open a Gnome terminal instance.
