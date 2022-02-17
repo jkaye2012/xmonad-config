@@ -56,5 +56,5 @@ Config { font     = "xft:FiraCode-10"
                     ]
        , sepChar  = "%"
        , alignSep = "}{"
-       , template = "%XMonadLog% }{ %cpu% <fc=#d08770>|</fc> %memory% <fc=#d08770>•</fc> %swap% <fc=#d08770>|</fc> %battery% <fc=#d08770>|</fc>%KBDU% <fc=#d08770>|</fc> %date% %trayerpad%"
+       , template = "%XMonadLog% }{ %cpu% <fc=#d08770>|</fc> %memory% <fc=#d08770>•</fc> %swap% <fc=#d08770>|</fc> %battery% <fc=#d08770>|</fc> %KBDU% <fc=#d08770>|</fc> %date% %trayerpad%"
        }

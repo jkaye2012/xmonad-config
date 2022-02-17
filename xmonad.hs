@@ -5,6 +5,7 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.EwmhDesktops
 import XMonad.Hooks.StatusBar
 import XMonad.Hooks.StatusBar.PP
+import XMonad.Layout.ThreeColumns
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig
 import XMonad.Util.Loggers
@@ -81,11 +82,14 @@ myStartupHook :: X ()
 myStartupHook = do
   spawn "~/.xmonad/trayer.sh"
 
+myLayout = Tall 1 (3 / 100) (1 / 2) ||| Mirror (Tall 1 (3 / 100) (1 / 2)) ||| Full ||| ThreeColMid 1 (3 / 100) (1 / 3)
+
 myConfig =
   def
     { borderWidth = 0,
       logHook = updatePointer (0.5, 0.5) (0, 0),
-      startupHook = myStartupHook
+      startupHook = myStartupHook,
+      layoutHook = myLayout
     }
     `additionalKeysP` [ ("M-S-=", unGrab *> spawn "scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"),
                         ("M-s", unGrab *> spawn "slock"),
