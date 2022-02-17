@@ -11,14 +11,6 @@ import XMonad.Util.EZConfig
 import XMonad.Util.Loggers
 import XMonad.Util.Ungrab
 
--- grey1, grey2, grey3, grey4, cyan, orange :: String -> String
--- grey1 = xmobarColor "#2B2E37" ""
--- grey2 = xmobarColor "#555E70" ""
--- grey3 = xmobarColor "#697180" ""
--- grey4 = xmobarColor "#8691A8" ""
--- cyan = xmobarColor "#5294E2" ""
--- orange = xmobarColor "#C45500" ""
-
 dark1 = xmobarColor "#2e3440" ""
 
 dark2 = xmobarColor "#434c5e" ""
@@ -69,14 +61,6 @@ myXmobarPP =
 
     ppWindow :: String -> String
     ppWindow = xmobarRaw . (\w -> if null w then "untitled" else w) . shorten 30
-
--- blue, lowWhite, magenta, red, white, yellow :: String -> String
--- magenta = xmobarColor "#ff79c6" ""
--- blue = xmobarColor "#5294E2" ""
--- white = xmobarColor "#7C818C" ""
--- yellow = xmobarColor "#f1fa8c" ""
--- red = xmobarColor "#ff5555" ""
--- lowWhite = xmobarColor "#4B5162" ""
 
 myStartupHook :: X ()
 myStartupHook = do
