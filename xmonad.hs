@@ -77,6 +77,7 @@ myConfig =
     }
     `additionalKeysP` [ ("M-S-=", unGrab *> spawn "scrot -s -e 'xclip -selection clipboard -t image/png -i $f' ~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"),
                         ("M-s", unGrab *> spawn "slock"),
+                        ("M-S-s", spawn "systemctl suspend"),
                         ("M-<Return>", spawn "gnome-terminal"),
                         ("M-;", spawn "rofi -show run"),
                         ("M-'", spawn "rofi -show window"),
