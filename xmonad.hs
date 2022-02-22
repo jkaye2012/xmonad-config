@@ -68,6 +68,21 @@ myStartupHook = do
 
 myLayout = Tall 1 (3 / 100) (1 / 2) ||| Mirror (Tall 1 (3 / 100) (1 / 2)) ||| Full ||| ThreeColMid 1 (3 / 100) (1 / 3)
 
+-- Non-numeric num pad keys, sorted by number
+numPadKeys =
+  [ xK_KP_End,
+    xK_KP_Down,
+    xK_KP_Page_Down,
+    xK_KP_Left,
+    xK_KP_Begin,
+    xK_KP_Right,
+    xK_KP_Home,
+    xK_KP_Up,
+    xK_KP_Page_Up
+  ]
+
+myWorkspaces = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
 myConfig =
   def
     { borderWidth = 0,
@@ -90,6 +105,10 @@ myConfig =
                         ("<XF86AudioPrev>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"),
                         ("<XF86AudioNext>", spawn "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next")
                       ]
+    `additionalKeys` [ ((m .|. mod1Mask, k), windows $ f i)
+                       | (i, k) <- zip myWorkspaces numPadKeys,
+                         (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+                     ]
 
 main :: IO ()
 main =
