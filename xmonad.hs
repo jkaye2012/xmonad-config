@@ -65,6 +65,7 @@ myXmobarPP =
 myStartupHook :: X ()
 myStartupHook = do
   spawn "~/.xmonad/trayer.sh"
+  spawn "~/.xmonad/keyboard.sh"
 
 myLayout = Tall 1 (3 / 100) (1 / 2) ||| Mirror (Tall 1 (3 / 100) (1 / 2)) ||| Full ||| ThreeColMid 1 (3 / 100) (1 / 3)
 

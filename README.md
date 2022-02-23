@@ -4,7 +4,7 @@
 
 The following are required for this configuration to work properly:
 
-    sudo apt install feh fzf rofi scrot slock trayer xclip xfce4-power-manager xmobar
+    sudo apt install feh fzf redshift rofi scrot slock trayer xclip xfce4-power-manager xmobar
 
 ## Installation
 
@@ -38,6 +38,7 @@ If you're using `gnome-terminal`, you can download and enable the `Nord` theme u
 * `M-<Return>`: Open a Gnome terminal instance.
 * `M-S-=`: Screenshot a window or region. Files are saved to ~/Pictures/Screenshots and copied to the clipboard.
 * `M-s`: Lock the screen.
+* `M-S-s`: Suspend and lock the system.
 * `M-;`: Run a program using `rofi`.
 * `M-'`: Switch to another window using `rofi`.
 * `M-c`: Kill the currently focused window.
